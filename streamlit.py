@@ -56,7 +56,7 @@ def run_flow(message: str, endpoint: str = ENDPOINT or FLOW_ID, tweaks: dict = T
     except requests.RequestException as e:
         return {"error": str(e)}
 
-# Define Pages
+# Pages
 def home_page():
     st.title("Social Media Engagement Analysis Bot")
     st.subheader("Analyze engagement on different types of posts")
