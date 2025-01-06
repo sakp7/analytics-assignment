@@ -1,17 +1,22 @@
+# Required Libraries
 import streamlit as st
 import requests
 import json
 
-# Configuration
+# Settingup configuration
 BASE_API_URL = "https://api.langflow.astra.datastax.com"
 LANGFLOW_ID = "2b0af0e3-10a9-4d98-8cff-e3db9d3ab7f0"
 FLOW_ID = "81ea3e8f-a341-4984-a749-098e3c60ebe0"
-
 APPLICATION_TOKEN ='AstraCS:gmPuQGAhUMZWIPSbKfbKMaYM:6cd95294da9fa7ce60990d87f36ea2c917ff8fb38dc4599b6d9d1173f5405953'
+ENDPOINT = ""
 
-ENDPOINT = ""  # Use endpoint name if defined in flow settings, else fallback to FLOW_ID
+st.set_page_config(
+    page_title="Analytics Bot - Team Sakp7",
+    layout="centered",
+    initial_sidebar_state="expanded",
+    
+)
 
-# Default tweaks (can be customized if needed)
 TWEAKS = {
     "ChatInput-n63ev": {},
     "ChatOutput-IJlVz": {},
@@ -19,13 +24,10 @@ TWEAKS = {
     "SplitText-ATIis": {},
     "AstraDB-mHggC": {},
     "Google Generative AI Embeddings-jhHuX": {},
-    "Google Generative AI Embeddings-J6MVt": {},
     "GoogleGenerativeAIModel-qj4sw": {},
-    "AstraDB-63lqj": {},
     "ParseData-hhAUA": {},
     "Prompt-tSdvR": {}
 }
-
 
 def run_flow(message: str, endpoint: str = ENDPOINT or FLOW_ID, tweaks: dict = TWEAKS) -> dict:
     """
@@ -40,7 +42,7 @@ def run_flow(message: str, endpoint: str = ENDPOINT or FLOW_ID, tweaks: dict = T
 
     payload = {
         "input_value": message,
-        "output_type": "chat",  # Adjust based on your flow's input/output type
+        "output_type": "chat",  
         "input_type": "chat",
         "tweaks": tweaks
     }
@@ -54,25 +56,86 @@ def run_flow(message: str, endpoint: str = ENDPOINT or FLOW_ID, tweaks: dict = T
     except requests.RequestException as e:
         return {"error": str(e)}
 
+# Define Pages
+def home_page():
+    st.title("Social Media Engagement Analysis Bot")
+    st.subheader("Analyze engagement on different types of posts")
 
-# Streamlit UI
-st.title("LangFlow + AstraDB Deployment")
+    col1, col2, col3 = st.columns(3)
+    a1 = col1.button("Engagement on Reels", key="b1")
+    a2 = col2.button("Engagement on Carousels", key="b2")
+    a3 = col3.button("Engagement on Static Images", key="b3")
+    col4, col5, col6 = st.columns(3)
+    a4 = col4.button("Reels VS Carousels")
+    a5 = col5.button("Carousels VS Static Images")
+    a6 = col6.button("Static Images VS Reels")
 
-# Input box for user message
-message = st.text_input("Enter your message", placeholder="Type your query here...")
+    # Custom message input
+    message = st.text_input("Enter your custom query", placeholder="Type your query here...")
 
-# Button to trigger the LangFlow execution
-if st.button("Run Flow"):
-    if not message.strip():
-        st.error("Please enter a valid message.")
-    else:
+    if st.button("Generate Analysis"):
+        if not message.strip():
+            st.error("Please enter a valid message.")
+        else:
+            with st.spinner("Running the flow..."):
+                result = run_flow(message)
+            if "error" in result:
+                st.error(f"Error: {result['error']}")
+            else:
+                st.text("Output:")
+                st.text(result["outputs"][0]["outputs"][0]["results"]["message"]["data"]["text"])
+
+    # Button handlers
+    def handle_query(query):
         with st.spinner("Running the flow..."):
-            result = run_flow(message)
+            result = run_flow(query)
         if "error" in result:
             st.error(f"Error: {result['error']}")
         else:
-            extracted_text = result['outputs'][0]['outputs'][0]['results']['message']['data']['text']
-        # Display the extracted text in Streamlit
             st.text("Output:")
-            st.text(extracted_text) # Display the JSON response
+            st.text(result["outputs"][0]["outputs"][0]["results"]["message"]["data"]["text"])
 
+    if a1:
+        handle_query("Reel")
+    if a2:
+        handle_query("Carousel")
+    if a3:
+        handle_query("Static Image")
+    if a4:
+        handle_query("Reels VS Carousel")
+    if a5:
+        handle_query("Carousels VS Static Images")
+    if a6:
+        handle_query("Static Images VS Reels")
+
+
+def description_page():
+    st.title("Description")
+    st.markdown(
+        """
+        ### About this Application
+        This application is designed to analyze social media engagement metrics. 
+        You can compare the performance of various post types like:
+        - **Reels**
+        - **Carousels**
+        - **Static Images**
+
+        #### Features:
+        - Predefined queries to analyze engagement.
+        - Custom input support for generating insights.
+        - Powered by LangFlow for natural language processing.
+
+        #### Use Cases:
+        - Social media analytics.
+        - Campaign performance tracking.
+        - Data-driven content strategy optimization.
+        """
+    )
+
+# Navigation
+home_page_instance = st.Page(home_page, title="Home")
+description_page_instance = st.Page(description_page, title="Description")
+
+# Navigation Logic
+selected_page = st.navigation({"Home": [home_page_instance], "Description": [description_page_instance]})
+selected_page.run()
