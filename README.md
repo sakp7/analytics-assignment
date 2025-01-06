@@ -37,15 +37,17 @@ Streamlit: Frontend library for building the interactive user interface and depl
 Clone the repository:
 
 
-git clone https://github.com/yourusername/social-media-analytics.git
+git clone [https://github.com/yourusername/social-media-analytics](https://github.com/sakp7/analytics-assignment).git
 Install dependencies:
 
 
 pip install -r requirements.txt
+
 Run the Streamlit app:
 
 streamlit run app.py
-Access the app on Streamlit Cloud (deployment link will be provided).
+
+Access the app on Streamlit Cloud- Link - https://analytics-assignment.streamlit.app/
 
 Database
 The sample database in DataStax Astra DB stores simulated engagement data, including metrics for likes, shares, comments, and post types (Reels, Carousels, Static Images).
