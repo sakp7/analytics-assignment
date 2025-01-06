@@ -37,7 +37,7 @@ Streamlit: Frontend library for building the interactive user interface and depl
 Clone the repository:
 
 
-git clone [https://github.com/yourusername/social-media-analytics](https://github.com/sakp7/analytics-assignment).git
+git clone [https://github.com/yourusername/social-media-analytics](https://github.com/sakp7/analytics-assignment)
 Install dependencies:
 
 
@@ -49,8 +49,8 @@ streamlit run app.py
 
 Access the app on Streamlit Cloud- Link - https://analytics-assignment.streamlit.app/
 
-Database
+### Database
 The sample database in DataStax Astra DB stores simulated engagement data, including metrics for likes, shares, comments, and post types (Reels, Carousels, Static Images).
 The database is structured to support efficient queries for the analytics module to fetch engagement metrics and calculate average performance.
-Conclusion
+## Conclusion
 This project demonstrates how to integrate modern AI models like Groq’s Llama3.1-8b-instant with a data-driven frontend for social media analytics. It leverages the power of Langflow, Groq, DataStax Astra DB, and Streamlit to create a seamless, real-time analytics experience for social media managers and content creators.
