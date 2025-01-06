@@ -4,7 +4,7 @@ import requests
 import json
 
 # Settingup configuration
-BASE_API_URL=st.secrets['BASE_API_URL'] 
+BASE_API_URL='https://api.langflow.astra.datastax.com' 
 LANGFLOW_ID =st.secrets['LANGFLOW_ID']
 FLOW_ID =st.secrets['FLOW_ID']
 APPLICATION_TOKEN =st.secrets['auth_token']
