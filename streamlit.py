@@ -110,27 +110,83 @@ def home_page():
 
 
 def description_page():
-    st.title("Description")
-    st.markdown(
-        """
-        ### About this Application
-        This application is designed to analyze social media engagement metrics. 
-        You can compare the performance of various post types like:
-        - **Reels**
-        - **Carousels**
-        - **Static Images**
 
-        #### Features:
-        - Predefined queries to analyze engagement.
-        - Custom input support for generating insights.
-        - Powered by LangFlow for natural language processing.
+    # Title
+    st.title("Social Media Analytics Module")
+    
+    # Project Overview
+    st.header("Project Overview")
+    st.write("""
+    This **Social Media Analytics Module** analyzes engagement data from mock social media accounts. 
+    It leverages **Groq's LLM model (Llama3.1-8b-instant)** for advanced natural language insights. 
+    Built with **Streamlit** as the front end, the application is deployed on **Streamlit Cloud**, 
+    providing an easy-to-use interface for analyzing and visualizing engagement metrics.
+    """)
+    
+    # Tech Stack
+    st.header("Tech Stack")
+    
+    st.subheader("Backend")
+    st.write("""
+    - **Groq LLM**: Llama3.1-8b-instant model for generating insights.
+    - **Langflow**: Used to create workflows that integrate GPT models and automate data processing.
+    - **DataStax Astra DB**: Cloud-based NoSQL database storing engagement metrics like likes, shares, comments, and post types.
+    """)
+    
+    st.subheader("Frontend")
+    st.write("""
+    - **Streamlit**: Interactive front end for user input and real-time analytics display.
+    """)
+    
+    st.subheader("Deployment")
+    st.write("""
+    - **Streamlit Cloud**: Seamless deployment platform making the app accessible over the internet.
+    """)
+    
+    # Key Features
+    st.header("Key Features")
+    
+    st.write("""
+    1. **Social Media Insights**:
+       - Accepts various post types (e.g., Carousels, Reels, Static Images).
+       - Provides engagement metrics like likes, comments, shares, and saves.
+       - Generates actionable insights such as: *"Reels have 2x higher comments than Static Images."*
+    """)
+    
+    st.write("""
+    2. **Data Fetching and Processing**:
+       - Data is stored in **DataStax Astra DB**, simulating social media engagement metrics.
+       - **Langflow** workflows fetch and analyze data using the Groq LLM model.
+    """)
+    
+    st.write("""
+    3. **Real-time Analytics**:
+       - Insights are displayed dynamically on the Streamlit front end, offering up-to-date analytics as users select different post types.
+    """)
+    
+    # Important Python Libraries
+    st.header("Important Python Libraries")
+    st.write("""
+    - **Langflow**: For workflow creation and GPT model integration.
+    - **Groq**: For leveraging the Llama3.1-8b-instant LLM model.
+    - **DataStax**: For managing the cloud-based database.
+    - **Streamlit**: For building the user interface and deploying the app.
+    """)
+    
+    # Database
+    st.header("Database")
+    st.write("""
+    The **sample database** in **DataStax Astra DB** stores simulated engagement data, including metrics for:
+    - **Likes**
+    - **Shares**
+    - **Comments**
+    - **Post Types (e.g., Reels, Carousels, Static Images)**
+    
+    The database is structured to efficiently fetch and calculate performance metrics for the analytics module.
+    """)
+    
+    
 
-        #### Use Cases:
-        - Social media analytics.
-        - Campaign performance tracking.
-        - Data-driven content strategy optimization.
-        """
-    )
 
 # Navigation
 home_page_instance = st.Page(home_page, title="Home")
