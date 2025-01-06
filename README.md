@@ -2,8 +2,8 @@
 ### Project Overview
 This project is a Social Media Analytics Module designed to analyze engagement data from mock social media accounts. The module uses Groq's LLM model (Llama3.1-8b-instant) for advanced natural language processing, allowing it to generate insights based on various post types such as Reels, Carousels, and Static Images. The front end is built using Streamlit, and the project is deployed on Streamlit Cloud for easy access and interaction.
 
-Tech Stack
-Backend:
+### Tech Stack
+#### Backend:
 
 Groq LLM: I used Groq's Llama3.1-8b-instant model to process and generate natural language insights based on social media engagement data.
 Langflow: A Python library for constructing workflow-based applications. It was used to integrate the LLM and automate the processing of social media engagement data.
