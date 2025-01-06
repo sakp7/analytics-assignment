@@ -5,10 +5,11 @@ This project is a Social Media Analytics Module designed to analyze engagement d
 ### Tech Stack
 #### Backend:
 
-Groq LLM: I used Groq's Llama3.1-8b-instant model to process and generate natural language insights based on social media engagement data.
+** Groq LLM** : I used Groq's Llama3.1-8b-instant model to process and generate natural language insights based on social media engagement data.
 Langflow: A Python library for constructing workflow-based applications. It was used to integrate the LLM and automate the processing of social media engagement data.
 DataStax Astra DB: A cloud-based NoSQL database that stores the engagement data. I created a sample database to simulate real-world social media data, including metrics like likes, shares, comments, and post types.
-Frontend:
+
+#### Frontend:
 
 Streamlit: The user interface is developed with Streamlit, allowing easy interaction with the system. The front end accepts user input (post types) and displays generated insights in real-time.
 Deployment:
