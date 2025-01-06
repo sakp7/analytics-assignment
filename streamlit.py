@@ -6,7 +6,7 @@ import json
 # Settingup configuration
 BASE_API_URL='https://api.langflow.astra.datastax.com' 
 LANGFLOW_ID ='2b0af0e3-10a9-4d98-8cff-e3db9d3ab7f0'
-FLOW_ID =st.secrets['FLOW_ID']
+FLOW_ID ='81ea3e8f-a341-4984-a749-098e3c60ebe0'
 APPLICATION_TOKEN =st.secrets['auth_token']
 ENDPOINT = ""
 
