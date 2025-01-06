@@ -37,7 +37,7 @@ Streamlit: Frontend library for building the interactive user interface and depl
 Clone the repository:
 
 
-git clone [https://github.com/yourusername/social-media-analytics](https://github.com/sakp7/analytics-assignment)
+git clone [https://github.com/sakp7/analytics-assignment](https://github.com/sakp7/analytics-assignment)
 
 Install dependencies:
 
