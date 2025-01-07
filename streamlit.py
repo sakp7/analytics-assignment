@@ -6,7 +6,7 @@ st.title(st.secrets['a'])
 # Settingup configuration
 BASE_API_URL='https://api.langflow.astra.datastax.com' 
 LANGFLOW_ID = st.secrets['lan_id']
-FLOW_ID ='81ea3e8f-a341-4984-a749-098e3c60ebe0'
+FLOW_ID =st.secrets['flow_id']
 APPLICATION_TOKEN =st.secrets['auth_token']
 ENDPOINT = ""
 
