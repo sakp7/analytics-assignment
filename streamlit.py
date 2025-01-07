@@ -117,7 +117,7 @@ def description_page():
     # Project Overview
     st.header("Project Overview")
     st.write("""
-    This **Social Media Analytics Module** analyzes engagement data from mock social media accounts. 
+    This **Social Media Analytics Module** built by team sakp7 analyzes engagement data from mock social media accounts. 
     It leverages **Groq's LLM model (Llama3.1-8b-instant)** for advanced natural language insights. 
     Built with **Streamlit** as the front end, the application is deployed on **Streamlit Cloud**, 
     providing an easy-to-use interface for analyzing and visualizing engagement metrics.
