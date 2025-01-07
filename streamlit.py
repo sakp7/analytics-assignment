@@ -2,13 +2,6 @@
 import streamlit as st
 import requests
 import json
-st.title(st.secrets['a'])
-# Settingup configuration
-BASE_API_URL='https://api.langflow.astra.datastax.com' 
-LANGFLOW_ID = st.secrets['lan_id']
-FLOW_ID =st.secrets['flow_id']
-# APPLICATION_TOKEN =st.secrets['auth_token']
-ENDPOINT = ""
 
 st.set_page_config(
     page_title="Analytics Bot - Team Sakp7",
@@ -16,6 +9,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     
 )
+# st.title(st.secrets['a'])
+# Settingup configuration
+BASE_API_URL='https://api.langflow.astra.datastax.com' 
+LANGFLOW_ID = st.secrets['lan_id']
+FLOW_ID =st.secrets['flow_id']
+# APPLICATION_TOKEN =st.secrets['auth_token']
+ENDPOINT = ""
 
 TWEAKS = {
     "ChatInput-n63ev": {},
