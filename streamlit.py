@@ -7,7 +7,7 @@ st.title(st.secrets['a'])
 BASE_API_URL='https://api.langflow.astra.datastax.com' 
 LANGFLOW_ID = st.secrets['lan_id']
 FLOW_ID =st.secrets['flow_id']
-APPLICATION_TOKEN =st.secrets['auth_token']
+# APPLICATION_TOKEN =st.secrets['auth_token']
 ENDPOINT = ""
 
 st.set_page_config(
