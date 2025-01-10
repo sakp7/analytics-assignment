@@ -113,7 +113,7 @@ def description_page():
 
     # Title
     st.title("Social Media Analytics Module")
-    st,write("Youtube video link - ")
+    st.write("Youtube video link - ")
     custom_link = "https://www.youtube.com/watch?v=66Z_roSPMJk"
 
     # Create a button in the Streamlit app
