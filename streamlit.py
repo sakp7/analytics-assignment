@@ -116,10 +116,8 @@ def description_page():
     st.write("Youtube video link - ")
     custom_link = "https://www.youtube.com/watch?v=66Z_roSPMJk"
 
-    # Create a button in the Streamlit app
-    if st.button("Open Link"):
-        # Use Markdown to create a clickable link that opens in a new tab
-        st.markdown(f'<a href="{custom_link}" target="_blank">Click here to open in a new tab</a>', unsafe_allow_html=True)
+
+    st.markdown(f'<a href="{custom_link}" target="_blank">Click here to open in a new tab</a>', unsafe_allow_html=True)
     # Project Overview
     st.header("Project Overview")
     st.write("""
